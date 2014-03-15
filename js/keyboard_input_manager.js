@@ -64,12 +64,6 @@ KeyboardInputManager.prototype.listen = function () {
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
 
-
-  if (window.navigator.msPointerEnabled) {
-      alert("Using Microsoft pointer model");
-  } else {}      // css way to prevent panning in our target area
-  
-
   if (!window.navigator.msPointerEnabled) {
     gameContainer.addEventListener("touchstart", function (event) {
       if (event.touches.length > 1) return;
@@ -80,7 +74,6 @@ KeyboardInputManager.prototype.listen = function () {
     });
   } else {
     gameContainer.addEventListener("MSPointerDown", function (event) {
-    //  alert("MSPointerDown");
       touchStartClientX = event.clientX;
       touchStartClientY = event.clientY;
       event.preventDefault();
