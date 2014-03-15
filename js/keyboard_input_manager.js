@@ -94,7 +94,7 @@ KeyboardInputManager.prototype.listen = function () {
       event.preventDefault();
     });
   } else {
-    gameContainer.addEventListener("MSPointerUp", function (event) {
+    gameContainer.addEventListener("MSPointerMove", function (event) {
       event.preventDefault();
     });
   }
@@ -115,7 +115,7 @@ KeyboardInputManager.prototype.listen = function () {
       }
     });
   } else {
-    gameContainer.addEventListener("MSPointerMove", function (event) {
+    gameContainer.addEventListener("MSPointerUp", function (event) {
       var dx = event.clientX - touchStartClientX;
       var absDx = Math.abs(dx);
 
