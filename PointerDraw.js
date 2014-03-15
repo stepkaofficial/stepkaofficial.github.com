@@ -14,11 +14,12 @@ Source: PointerDraw.js
 // target element cannot move within the document during drawing
 //
 function PointerDraw(target, startDraw, extendDraw, endDraw, logMessage) {
+
      
     // an object to keep track of the last x/y positions of the mouse/pointer/touch point
     // used to reject redundant moves and as a flag to determine if we're in the "down" state
     var lastXYById = {};
-     
+    alert("1");
     // an audit function to see if we're keeping lastXYById clean
     if (logMessage) {
         window.setInterval(function () {
