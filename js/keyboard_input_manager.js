@@ -1,6 +1,5 @@
 function KeyboardInputManager() {
   this.events = {};
-
   this.listen();
 }
 
@@ -65,65 +64,75 @@ KeyboardInputManager.prototype.listen = function () {
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
 
-  gameContainer.addEventListener("touchstart", function (event) {
-    if (event.touches.length > 1) return;
 
-    touchStartClientX = event.touches[0].clientX;
-    touchStartClientY = event.touches[0].clientY;
-    event.preventDefault();
-  });
-  gameContainer.addEventListener("MSPointerDown", function (event) {
+  if (window.navigator.msPointerEnabled) {
+      alert("Using Microsoft pointer model");
+  } else {}      // css way to prevent panning in our target area
+  
 
-    //if (event.touches.length > 1) return;
+  if (!window.navigator.msPointerEnabled) {
+    gameContainer.addEventListener("touchstart", function (event) {
+      if (event.touches.length > 1) return;
 
-    touchStartClientX = event.clientX;
-    touchStartClientY = event.clientY;
-    event.preventDefault();
-  });
-
-
-
-
-
-
-
-
-  gameContainer.addEventListener("touchmove", function (event) {
-    event.preventDefault();
-  });
-  gameContainer.addEventListener("MSPointerMove", function (event) {
-    event.preventDefault();
-  });
-
-  gameContainer.addEventListener("touchend", function (event) {
-    if (event.touches.length > 0) return;
-
-    var dx = event.changedTouches[0].clientX - touchStartClientX;
-    var absDx = Math.abs(dx);
-
-    var dy = event.changedTouches[0].clientY - touchStartClientY;
-    var absDy = Math.abs(dy);
-
-    if (Math.max(absDx, absDy) > 10) {
-      // (right : left) : (down : up)
-      self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
-    }
-  });
-  gameContainer.addEventListener("MSPointerUp", function (event) {
-    //if (event.touches.length > 0) return;
-    var dx = event.clientX - touchStartClientX;
-    var absDx = Math.abs(dx);
-    var dy = event.clientY - touchStartClientY;
-    var absDy = Math.abs(dy);
-
-    if (Math.max(absDx, absDy) > 10) {
-      // (right : left) : (down : up)
-      self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
-    }
-  });
+      touchStartClientX = event.touches[0].clientX;
+      touchStartClientY = event.touches[0].clientY;
+      event.preventDefault();
+    });
+  } else {
+    gameContainer.addEventListener("MSPointerDown", function (event) {
+    //  if (event.touches.length > 1) return;
+    //  alert("MSPointerDown");
+      touchStartClientX = event.clientX;
+      touchStartClientY = event.clientY;
+      event.preventDefault();
+    });  
+  }
+  
 
 
-};
+  if (!window.navigator.msPointerEnabled) {
+    gameContainer.addEventListener("touchmove", function (event) {
+      event.preventDefault();
+    });
+  } else {
+    gameContainer.addEventListener("MSPointerUp", function (event) {
+     // alert("MSPointerUp");
+      event.preventDefault();
+    });
+  }
+
+  if (!window.navigator.msPointerEnabled) {
+    gameContainer.addEventListener("touchend", function (event) {
+      if (event.touches.length > 0) return;
+
+      var dx = event.changedTouches[0].clientX - touchStartClientX;
+      var absDx = Math.abs(dx);
+
+      var dy = event.changedTouches[0].clientY - touchStartClientY;
+      var absDy = Math.abs(dy);
+
+      if (Math.max(absDx, absDy) > 10) {
+        // (right : left) : (down : up)
+        self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
+      }
+    });
+  } else {
+    gameContainer.addEventListener("MSPointerMove", function (event) {
+      //if (event.touches.length > 0) return;
+     // alert("MSPointerMove");
+      var dx = event.clientX - touchStartClientX;
+      var absDx = Math.abs(dx);
+
+      var dy = event.clientY - touchStartClientY;
+      var absDy = Math.abs(dy);
+
+      if (Math.max(absDx, absDy) > 10) {
+        // (right : left) : (down : up)
+        self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
+      }
+    });
+  }
+ };
 
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
@@ -134,3 +143,4 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
 };
+

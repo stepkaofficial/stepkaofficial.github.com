@@ -232,47 +232,5 @@ function DoEvent(theEvtObj) {
             target.style.msTouchAction = "none";
 
         alert("Using Microsoft pointer model");
-
-        if (logMessage)
-            logMessage("Using Microsoft pointer model");
-        }
-    else if (target.addEventListener) {
-        // iOS touch model
-        target.addEventListener("touchstart", DoEvent, false);
-        target.addEventListener("touchmove", DoEvent, false);
-        target.addEventListener("touchend", DoEvent, false);
-        target.addEventListener("touchcancel", DoEvent, false);
- 
-        // mouse model
-        target.addEventListener("mousedown", DoEvent, false);
- 
-        // mouse model with capture
-        // rejecting gecko because, unlike ie, firefox does not send events to target when the mouse is outside target
-        if (target.setCapture && !window.navigator.userAgent.match(/\bGecko\b/)) {
-            useSetReleaseCapture = true;
-         
-            target.addEventListener("mousemove", DoEvent, false);
-            target.addEventListener("mouseup", DoEvent, false);
-
-            alert("Using mouse model with capture")
-            if (logMessage)
-                logMessage("Using mouse model with capture");
-        }
-    }
-    else if (target.attachEvent && target.setCapture) {
-        // legacy IE mode - mouse with capture
-        useSetReleaseCapture = true;
-        target.attachEvent("onmousedown", function () { DoEvent(window.event); window.event.returnValue = false; return false; });
-        target.attachEvent("onmousemove", function () { DoEvent(window.event); window.event.returnValue = false; return false; });
-        target.attachEvent("onmouseup", function () { DoEvent(window.event); window.event.returnValue = false; return false; });
-        
-        alert("Using legacy IE mode - mouse model with capture");
-        if (logMessage)
-            logMessage("Using legacy IE mode - mouse model with capture");
-    }
-    else {
-        alert("Unexpected combination of supported features");
-        if (logMessage)
-            logMessage("Unexpected combination of supported features");
     }
 }
