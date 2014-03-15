@@ -1,4 +1,5 @@
 function KeyboardInputManager() {
+  alert("@@@@");
   this.events = {};
   this.listen();
 }
@@ -80,7 +81,7 @@ KeyboardInputManager.prototype.listen = function () {
     });
   } else {
     gameContainer.addEventListener("MSPointerDown", function (event) {
-    //  if (event.touches.length > 1) return;
+      if (event.touches.length > 1) return;
     //  alert("MSPointerDown");
       touchStartClientX = event.clientX;
       touchStartClientY = event.clientY;
@@ -118,7 +119,7 @@ KeyboardInputManager.prototype.listen = function () {
     });
   } else {
     gameContainer.addEventListener("MSPointerMove", function (event) {
-      //if (event.touches.length > 0) return;
+      if (event.touches.length > 0) return;
      // alert("MSPointerMove");
       var dx = event.clientX - touchStartClientX;
       var absDx = Math.abs(dx);
