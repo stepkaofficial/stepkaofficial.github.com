@@ -304,7 +304,7 @@ hr {
   position: absolute;
   -webkit-transition: 100ms ease-in-out;
   -moz-transition: 100ms ease-in-out;
-  transition: 100ms ease-in-out;
+  transition: 100ms ease-inout;
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform; }

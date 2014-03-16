@@ -62,7 +62,8 @@ KeyboardInputManager.prototype.listen = function () {
 
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
-  var gameContainer = document.getElementsByClassName("game-container")[0];
+  // var gameContainer = document.getElementsByClassName("game-container")[0];
+  var gameContainer = document.getElementsByClassName("container")[0];
 
   if (!window.navigator.msPointerEnabled) {
     gameContainer.addEventListener("touchstart", function (event) {
