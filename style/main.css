@@ -462,9 +462,9 @@ hr {
 
 @keyframes pop {
   0% {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7); }
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9); }
 
   50% {
     -webkit-transform: scale(1.1);
@@ -481,7 +481,7 @@ hr {
   z-index: 20;
   -webkit-animation: pop 200ms ease 100ms;
   -moz-animation: pop 200ms ease 100ms;
-  animation: pop 200ms ease 100ms;
+  animation: pop 100ms ease 70ms;
   -webkit-animation-fill-mode: backwards;
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
