@@ -304,7 +304,7 @@ hr {
   position: absolute;
   -webkit-transition: 100ms ease-in-out;
   -moz-transition: 100ms ease-in-out;
-  transition: 100ms ease-inout;
+  transition: 100ms ease-in;
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform; }
@@ -430,14 +430,14 @@ hr {
 
 @-webkit-keyframes pop {
   0% {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    transform: scale(0); }
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7); }
 
   50% {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    transform: scale(1.2); }
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1); }
 
   100% {
     -webkit-transform: scale(1);
@@ -462,19 +462,20 @@ hr {
 
 @keyframes pop {
   0% {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    transform: scale(0); }
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7); }
 
   50% {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    transform: scale(1.2); }
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1); }
 
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
+
 
 .tile-merged .tile-inner {
   z-index: 20;
