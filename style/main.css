@@ -1,7 +1,5 @@
 @import url(fonts/clear-sans.css);
 html, body {
-  -ms-touch-action: none;
-  -ms-user-select: none;
   margin: 0;
   padding: 0;
   background: #faf8ef;
@@ -153,7 +151,6 @@ hr {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   background: #bbada0;
   border-radius: 6px;
   width: 500px;
@@ -306,7 +303,7 @@ hr {
   position: absolute;
   -webkit-transition: 100ms ease-in-out;
   -moz-transition: 100ms ease-in-out;
-  transition: 100ms ease-in;
+  transition: 100ms ease-in-out;
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform; }
@@ -432,14 +429,14 @@ hr {
 
 @-webkit-keyframes pop {
   0% {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
 
   50% {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    transform: scale(1.1); }
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2); }
 
   100% {
     -webkit-transform: scale(1);
@@ -464,26 +461,25 @@ hr {
 
 @keyframes pop {
   0% {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    transform: scale(1); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
 
   50% {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    transform: scale(1.1); }
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2); }
 
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
 
-
 .tile-merged .tile-inner {
   z-index: 20;
   -webkit-animation: pop 200ms ease 100ms;
   -moz-animation: pop 200ms ease 100ms;
-  animation: pop 100ms ease 70ms;
+  animation: pop 200ms ease 100ms;
   -webkit-animation-fill-mode: backwards;
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
@@ -526,7 +522,6 @@ hr {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     background: #bbada0;
     border-radius: 6px;
     width: 280px;
