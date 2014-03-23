@@ -1,6 +1,7 @@
 @import url(fonts/clear-sans.css);
 html, body {
   -ms-touch-action: none;
+  -ms-user-select: none;
   margin: 0;
   padding: 0;
   background: #faf8ef;
@@ -152,6 +153,7 @@ hr {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   background: #bbada0;
   border-radius: 6px;
   width: 500px;
@@ -462,9 +464,9 @@ hr {
 
 @keyframes pop {
   0% {
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    transform: scale(0.9); }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); }
 
   50% {
     -webkit-transform: scale(1.1);
@@ -524,6 +526,7 @@ hr {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+    -ms-user-select: none;
     background: #bbada0;
     border-radius: 6px;
     width: 280px;
